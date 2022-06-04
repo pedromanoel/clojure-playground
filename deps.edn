@@ -1,3 +1,9 @@
-{:deps    {nubank/matcher-combinators {:mvn/version "3.3.1"}}
- :paths   ["src/main"]
- :aliases {:test {:extra-paths ["src/test"]}}}
+{:deps  {}
+
+ :paths ["src/main"]
+
+ :aliases
+ {:test
+  {:extra-paths ["src/test"]
+   :extra-deps  {lambdaisland/kaocha        {:mvn/version "1.66.1034"}
+                 nubank/matcher-combinators {:mvn/version "3.5.0"}}}}}
