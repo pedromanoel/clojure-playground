@@ -1,6 +1,6 @@
-(ns hacker-rank.between-two-sets-test
+(ns pedromanoel.playground.hacker-rank.between-two-sets-test
   (:require [clojure.test :refer :all])
-  (:require [hacker-rank.between-two-sets :refer [getTotalX]]))
+  (:require [pedromanoel.playground.hacker-rank.between-two-sets :refer [getTotalX]]))
 
 (deftest getTotalX-test
   (testing "it returns empty list when there are no common factors"

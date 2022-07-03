@@ -1,6 +1,6 @@
-(ns code-arcade.solution-test
+(ns pedromanoel.playground.code-arcade.solution-test
   (:require [clojure.test :refer :all]
-            [code-arcade.add-two-digits :refer [solution]]
+            [pedromanoel.playground.code-arcade.add-two-digits :refer [solution]]
             [matcher-combinators.test :refer [match?]]))
 
 (deftest add-two-digits-test

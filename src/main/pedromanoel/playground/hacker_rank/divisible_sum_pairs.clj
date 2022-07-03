@@ -1,4 +1,4 @@
-(ns hacker-rank.divisible-sum-pairs)
+(ns pedromanoel.playground.hacker-rank.divisible-sum-pairs)
 
 (defn divisible? [dividend divisor]
   (zero? (rem dividend divisor)))

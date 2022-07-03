@@ -1,4 +1,4 @@
-(ns hacker-rank.breaking-best-and-worst-records)
+(ns pedromanoel.playground.hacker-rank.breaking-best-and-worst-records)
 
 (defn records-count
   [{:keys [worst best] :as records} score]

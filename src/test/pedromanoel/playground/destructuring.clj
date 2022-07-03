@@ -1,4 +1,4 @@
-(ns destructuring
+(ns pedromanoel.playground.destructuring
   (:require [clojure.test :refer :all]
             [matcher-combinators.test :refer [match?]]
             [matcher-combinators.matchers :as m]))

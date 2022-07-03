@@ -1,4 +1,4 @@
-(ns code-arcade.largest)
+(ns pedromanoel.playground.code-arcade.largest)
 
 (defn solution [n]
   (Integer/parseInt (clojure.string/join (repeat n 9))))

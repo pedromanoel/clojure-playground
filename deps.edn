@@ -6,4 +6,5 @@
  {:test
   {:extra-paths ["src/test"]
    :extra-deps  {lambdaisland/kaocha        {:mvn/version "1.67.1055"}
-                 nubank/matcher-combinators {:mvn/version "3.5.0"}}}}}
+                 nubank/matcher-combinators {:mvn/version "3.5.0"}}
+   :main-opts   ["-m" "kaocha.runner"]}}}

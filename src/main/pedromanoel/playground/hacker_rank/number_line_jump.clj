@@ -1,4 +1,4 @@
-(ns hacker-rank.number-line-jump)
+(ns pedromanoel.playground.hacker-rank.number-line-jump)
 
 (defn sorted-kangaroos
   [positions-and-velocities]

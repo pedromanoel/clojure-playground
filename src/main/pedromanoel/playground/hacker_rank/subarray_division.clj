@@ -1,4 +1,4 @@
-(ns hacker-rank.subarray-division)
+(ns pedromanoel.playground.hacker-rank.subarray-division)
 
 (defn subarray-division [arr sum size]
   (->> arr

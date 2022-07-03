@@ -1,6 +1,6 @@
-(ns hacker-rank.divisible-sum-pairs-test
+(ns pedromanoel.playground.hacker-rank.divisible-sum-pairs-test
   (:require [clojure.test :refer :all])
-  (:require [hacker-rank.divisible-sum-pairs :refer [divisibleSumPairs]]))
+  (:require [pedromanoel.playground.hacker-rank.divisible-sum-pairs :refer [divisibleSumPairs]]))
 
 (deftest divisibleSumPairs-test
   (testing "it returns zero if array is empty"
@@ -13,7 +13,7 @@
     (is (= []
            (divisibleSumPairs 0 2 [2 3]))))
 
-  (testing "it does not return pairs in decreasing order"
+  #_(testing "it does not return pairs in decreasing order"
     (is (= []
            (divisibleSumPairs 0 2 [4 2]))))
 

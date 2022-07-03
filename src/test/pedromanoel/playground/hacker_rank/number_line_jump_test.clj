@@ -1,6 +1,6 @@
-(ns hacker-rank.number-line-jump-test
+(ns pedromanoel.playground.hacker-rank.number-line-jump-test
   (:require [clojure.test :refer :all]
-            [hacker-rank.number-line-jump :refer [kangaroo]]))
+            [pedromanoel.playground.hacker-rank.number-line-jump :refer [kangaroo]]))
 
 (deftest kangaroo-test
   (testing "it returns YES when kangaroo on the back is faster"

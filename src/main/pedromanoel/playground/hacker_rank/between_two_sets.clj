@@ -1,4 +1,4 @@
-(ns hacker-rank.between-two-sets
+(ns pedromanoel.playground.hacker-rank.between-two-sets
   (:require [clojure.set :refer [intersection]]))
 
 (defn factor? [divisor dividend]

@@ -1,4 +1,4 @@
-(ns spec-test
+(ns pedromanoel.playground.spec-test
   (:require [clojure.test :refer :all]
             [clojure.spec.alpha :as s]))
 

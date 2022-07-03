@@ -1,6 +1,6 @@
-(ns hacker-rank.migratory-birds-test
+(ns pedromanoel.playground.hacker-rank.migratory-birds-test
   (:require [clojure.test :refer :all])
-  (:require [hacker-rank.migratory-birds :refer [migratoryBirds]]))
+  (:require [pedromanoel.playground.hacker-rank.migratory-birds :refer [migratoryBirds]]))
 
 (deftest migratoryBirds-test
   (testing "it returns the most frequent number"

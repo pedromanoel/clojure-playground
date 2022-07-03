@@ -1,6 +1,6 @@
-(ns hacker-rank.subarray-division-test
+(ns pedromanoel.playground.hacker-rank.subarray-division-test
   (:require [clojure.test :refer :all]
-            [hacker-rank.subarray-division :refer [subarray-division]]))
+            [pedromanoel.playground.hacker-rank.subarray-division :refer [subarray-division]]))
 
 (deftest subarray-division-test
   (testing "it returns zero when size is zero"

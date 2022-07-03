@@ -1,6 +1,6 @@
-(ns hacker-rank.breaking-best-and-worst-records-test
+(ns pedromanoel.playground.hacker-rank.breaking-best-and-worst-records-test
   (:require [clojure.test :refer :all]
-            [hacker-rank.breaking-best-and-worst-records :refer [breakingRecords]]
+            [pedromanoel.playground.hacker-rank.breaking-best-and-worst-records :refer [breakingRecords]]
             [matcher-combinators.test :refer [match?]]))
 
 (deftest breakingRecords-test

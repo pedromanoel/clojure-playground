@@ -1,4 +1,4 @@
-(ns hacker-rank.migratory-birds)
+(ns pedromanoel.playground.hacker-rank.migratory-birds)
 
 (def sightings-then-birds
   (juxt (comp - second) first))
