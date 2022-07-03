@@ -5,5 +5,5 @@
  :aliases
  {:test
   {:extra-paths ["src/test"]
-   :extra-deps  {lambdaisland/kaocha        {:mvn/version "1.66.1034"}
+   :extra-deps  {lambdaisland/kaocha        {:mvn/version "1.67.1055"}
                  nubank/matcher-combinators {:mvn/version "3.5.0"}}}}}
