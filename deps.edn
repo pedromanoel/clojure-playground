@@ -1,10 +1,11 @@
-{:deps  {}
+{:paths ["src/main"]
 
- :paths ["src/main"]
+ :deps  {org.clojure/spec.alpha {:mvn/version "0.3.218"}}
 
  :aliases
  {:test
   {:extra-paths ["src/test"]
-   :extra-deps  {lambdaisland/kaocha        {:mvn/version "1.67.1055"}
+   :extra-deps  {org.clojure/test.check     {:mvn/version "1.1.1"}
+                 lambdaisland/kaocha        {:mvn/version "1.67.1055"}
                  nubank/matcher-combinators {:mvn/version "3.5.0"}}
    :main-opts   ["-m" "kaocha.runner"]}}}
