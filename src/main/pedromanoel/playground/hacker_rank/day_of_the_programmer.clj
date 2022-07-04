@@ -8,8 +8,6 @@
   (cond
     (julian? year)
 
-
     (gregorian? year)
 
-    :else )
-  )
+    :else))

@@ -1,5 +1,6 @@
 (ns pedromanoel.playground.hacker-rank.between-two-sets-test
-  (:require [clojure.test :refer :all])
+  (:require
+   [clojure.test :refer :all])
   (:require [pedromanoel.playground.hacker-rank.between-two-sets :refer [getTotalX]]))
 
 (deftest getTotalX-test

@@ -1,7 +1,8 @@
 (ns pedromanoel.playground.hacker-rank.breaking-best-and-worst-records-test
-  (:require [clojure.test :refer :all]
-            [pedromanoel.playground.hacker-rank.breaking-best-and-worst-records :refer [breakingRecords]]
-            [matcher-combinators.test :refer [match?]]))
+  (:require
+   [clojure.test :refer :all]
+   [matcher-combinators.test :refer [match?]]
+   [pedromanoel.playground.hacker-rank.breaking-best-and-worst-records :refer [breakingRecords]]))
 
 (deftest breakingRecords-test
   (testing "hackerrank test"
@@ -15,7 +16,7 @@
 
     (testing "it counts consecutive increases"
       (is (match? [2 int?]
-             (breakingRecords [1 2 1 3])))))
+                  (breakingRecords [1 2 1 3])))))
 
   (testing "return[1]"
     (testing "it does not count single score"

@@ -6,4 +6,4 @@
 (defn migratoryBirds [arr]
   (->> (frequencies arr)
        (sort-by sightings-then-birds)
-      ffirst))
+       ffirst))

@@ -1,5 +1,6 @@
 (ns pedromanoel.playground.hacker-rank.migratory-birds-test
-  (:require [clojure.test :refer :all])
+  (:require
+   [clojure.test :refer :all])
   (:require [pedromanoel.playground.hacker-rank.migratory-birds :refer [migratoryBirds]]))
 
 (deftest migratoryBirds-test

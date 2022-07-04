@@ -1,7 +1,8 @@
 (ns pedromanoel.playground.destructuring
-  (:require [clojure.test :refer :all]
-            [matcher-combinators.test :refer [match?]]
-            [matcher-combinators.matchers :as m]))
+  (:require
+   [clojure.test :refer :all]
+   [matcher-combinators.matchers :as m]
+   [matcher-combinators.test :refer [match?]]))
 
 (deftest map-destructuring-test
   (testing "it destructures maps"

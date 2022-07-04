@@ -17,8 +17,8 @@
 
 (defn breakingRecords [[first-score & scores]]
   (:records
-    (reduce records-count
-            {:worst   first-score
-             :best    first-score
-             :records [0 0]}
-            scores)))
+   (reduce records-count
+           {:worst   first-score
+            :best    first-score
+            :records [0 0]}
+           scores)))
