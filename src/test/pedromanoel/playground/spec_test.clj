@@ -2,7 +2,8 @@
   (:require
    [clojure.spec.alpha :as s]
    [clojure.test :refer :all]
-   [pedromanoel.playground.spec]))
+   [pedromanoel.playground.spec]
+   [matcher-combinators.test :refer [match?]]))
 
 (deftest conform-test
   (testing "it accepts simple predicates, and returns conformed value"
@@ -54,3 +55,31 @@
     (is (true? (s/valid? :order/date #inst "2022-07-03T12:00:00Z")))
     (is (true? (s/valid? :deck/suit :spade)))
     (is (false? (s/valid? :deck/suit :squares)))))
+
+(deftest explain-data-test
+  (testing "it returns offending value in :val key"
+    (is (match? #::s{:problems [{:val 10M}]}
+                (s/explain-data int? 10M)))
+    (is (match? #::s{:problems [{:val :foo}]}
+                (s/explain-data string? :foo))))
+
+  (testing "it returns failing predicate symbol in :pred"
+    (is (match? #::s{:problems [{:pred `string?}]}
+                (s/explain-data string? 10))))
+
+  (testing "it returns ::s/unknown for custom predicates"
+    (is (match? #::s{:problems [{:pred ::s/unknown}]}
+                (s/explain-data (partial > 10) 11))))
+
+  (testing "it returns registered spec in :via"
+    (is (match? #::s{:problems [{:via [:deck/suit]}]}
+                (s/explain-data :deck/suit 42))))
+
+  (testing "it returns empty in :via when spec is not registered"
+    (is (match? #::s{:problems [{:via empty}]}
+                (s/explain-data string? 42))))
+
+  (testing "it returns failed specs in :path for combined specs"
+    (is (match? #::s{:problems [{:path [:name]}
+                                {:path [:id]}]}
+                (s/explain-data :domain/name-or-id :foo)))))
