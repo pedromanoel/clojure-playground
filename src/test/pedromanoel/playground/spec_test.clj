@@ -1,9 +1,9 @@
 (ns pedromanoel.playground.spec-test
   (:require
-   [clojure.spec.alpha :as s]
-   [clojure.test :refer :all]
-   [pedromanoel.playground.spec]
-   [matcher-combinators.test :refer [match?]]))
+    [clojure.spec.alpha :as s]
+    [clojure.test :refer :all]
+    [pedromanoel.playground.spec]
+    [matcher-combinators.test :refer [match?]]))
 
 (deftest conform-test
   (testing "it accepts simple predicates, and returns conformed value"
@@ -77,8 +77,8 @@
     (is (match? #::s{:problems [{:via [:acct/person :acct/last-name]}]}
                 (s/explain-data :acct/person
                                 #:acct{:first-name "Pedro"
-                                       :last-name nil
-                                       :email "a@example.com"}))))
+                                       :last-name  nil
+                                       :email      "a@example.com"}))))
 
   (testing "it returns empty in :via when spec is not registered"
     (is (match? #::s{:problems [{:via empty}]}
@@ -96,4 +96,54 @@
                                 #:acct{:first-name 10
                                        :last-name  "Evangelista"
                                        :email      "a@example.com"
-                                       :phone 123})))))
+                                       :phone      123}))))
+
+  (testing "for entity-map"
+    (testing "it return missing keys in :pred key"
+      (is (match? #::s{:problems [{:pred `(fn [~'%] (contains? ~'% :acct/last-name))}
+                                  {:pred `(fn [~'%] (contains? ~'% :acct/email))}]}
+                  (s/explain-data :acct/person
+                                  #:acct{:first-name "Pedro"}))))
+
+    (testing "it return missing keys in :pred key"
+      (is (match? #::s{:problems [{:pred `string? :path [:acct/last-name]}]}
+                  (s/explain-data :acct/person
+                                  #:acct{:first-name "Pedro"
+                                         :last-name  10
+                                         :email      "a@example.com"}))))))
+
+(deftest keys-test
+  (let [person #:acct{:first-name "Pedro"
+                      :last-name  "Evangelista"
+                      :email      "a@example.com"}]
+    (testing ":req key"
+      (testing "it validates required keys"
+        (is (true? (s/valid? :acct/person person)))
+        (is (false? (s/valid? :acct/person (dissoc person :acct/first-name))))
+        (is (false? (s/valid? :acct/person (dissoc person :acct/last-name))))
+        (is (false? (s/valid? :acct/person (dissoc person :acct/email))))))
+
+    (testing ":opt key"
+      (testing "it validates optional keys"
+        (is (true? (s/valid? :acct/person (assoc person :acct/phone "123")))))))
+
+  (testing ":req-un and :opt-un"
+    (testing "it validates unamespaced entities"
+      (is (true? (s/valid? :unq/person
+                           {:first-name "Pedro"
+                            :last-name  "Evangelista"
+                            :email      "a@example.com"}))))))
+
+(deftest keys*-test
+  (testing "conform return seq as namespaced map"
+    (is (match? #:my.config{:id :id1 :host "123" :port 8000}
+                (s/conform :my.config/server
+                           [:my.config/id :id1 :my.config/host "123" :my.config/port 8000]))))
+
+  (testing "it validates optional keys"
+    (is (true? (s/valid? :my.config/server [:my.config/id :id1 :my.config/host "123"])))
+    (is (false? (s/valid? :my.config/server [:my.config/id :id1]))))
+
+  (testing "it validates in any order keys"
+    (is (true? (s/valid? :my.config/server [:my.config/id :id1 :my.config/host "123"])))
+    (is (true? (s/valid? :my.config/server [:my.config/host "123" :my.config/id :id1])))))
