@@ -73,7 +73,12 @@
 
   (testing "it returns registered spec in :via"
     (is (match? #::s{:problems [{:via [:deck/suit]}]}
-                (s/explain-data :deck/suit 42))))
+                (s/explain-data :deck/suit 42)))
+    (is (match? #::s{:problems [{:via [:acct/person :acct/last-name]}]}
+                (s/explain-data :acct/person
+                                #:acct{:first-name "Pedro"
+                                       :last-name nil
+                                       :email "a@example.com"}))))
 
   (testing "it returns empty in :via when spec is not registered"
     (is (match? #::s{:problems [{:via empty}]}
@@ -82,4 +87,13 @@
   (testing "it returns failed specs in :path for combined specs"
     (is (match? #::s{:problems [{:path [:name]}
                                 {:path [:id]}]}
-                (s/explain-data :domain/name-or-id :foo)))))
+                (s/explain-data :domain/name-or-id :foo))))
+
+  (testing "it returns path of offending value in nested structures in :in key"
+    (is (match? #::s{:problems [{:in [:acct/first-name]}
+                                {:in [:acct/phone]}]}
+                (s/explain-data :acct/person
+                                #:acct{:first-name 10
+                                       :last-name  "Evangelista"
+                                       :email      "a@example.com"
+                                       :phone 123})))))
