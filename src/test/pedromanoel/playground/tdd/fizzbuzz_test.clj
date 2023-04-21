@@ -1,7 +1,8 @@
 (ns pedromanoel.playground.tdd.fizzbuzz-test
-  (:require [clojure.test :refer :all]
-            [matcher-combinators.test :refer [match?]]
-            [pedromanoel.playground.tdd.fizzbuzz :refer [fizzbuzz]]))
+  (:require
+   [clojure.test :refer :all]
+   [matcher-combinators.test :refer [match?]]
+   [pedromanoel.playground.tdd.fizzbuzz :refer [fizzbuzz]]))
 
 (deftest fizzbuzz-test
   (testing "it returns numbers as strings"

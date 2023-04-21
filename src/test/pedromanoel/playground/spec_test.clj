@@ -1,9 +1,9 @@
 (ns pedromanoel.playground.spec-test
   (:require
-    [clojure.spec.alpha :as s]
-    [clojure.test :refer :all]
-    [pedromanoel.playground.spec]
-    [matcher-combinators.test :refer [match?]]))
+   [clojure.spec.alpha :as s]
+   [clojure.test :refer :all]
+   [matcher-combinators.test :refer [match?]]
+   [pedromanoel.playground.spec]))
 
 (deftest conform-test
   (testing "it accepts simple predicates, and returns conformed value"
