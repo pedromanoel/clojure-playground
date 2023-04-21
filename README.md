@@ -44,6 +44,7 @@ Each namespace contains a different exploration/exercise:
   [hacker-rank].
 * `tdd` - katas from [TDD Manifesto Katas][tdd-katas].
 * `spec` - my studies on [clojure.spec][clojure.spec].
+* `macros` - learning how [macros][macros] work.
 
 ## Unit Tests
 
@@ -56,14 +57,16 @@ There are some exercises that are purely in the test namespace:
   [destructuring] in test format.
 *
 
-[code-arcade]: https://app.codesignal.com/arcade
-
-[hacker-rank]: https://www.hackerrank.com/
-
-[tdd-katas]: https://tddmanifesto.com/exercises/
-
 [clojure.spec]: https://clojure.org/guides/spec
+
+[code-arcade]: https://app.codesignal.com/arcade
 
 [destructuring]: https://clojure.org/guides/destructuring
 
+[hacker-rank]: https://www.hackerrank.com/
+
 [kaocha]: https://github.com/lambdaisland/kaocha
+
+[macros]: https://clojure.org/reference/macros
+
+[tdd-katas]: https://tddmanifesto.com/exercises/
