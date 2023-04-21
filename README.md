@@ -2,6 +2,19 @@
 
 This project contains my explorations of the clojure language.
 
+## Running the code
+
+This repository does not contain an application, only
+namespaces with my understanding about several topics. You
+can, however, run the unit tests with:
+
+```shell
+./bin/kaocha
+```
+
+The [tests.edn](./tests.edn) file configures how Kaocha will
+be executed. See [Kaocha Doc][kaocha] for more details.
+
 ## Namespaces
 
 Each namespace contains a different exploration/exercise:
@@ -13,7 +26,7 @@ Each namespace contains a different exploration/exercise:
 * `tdd` - katas from [TDD Manifesto Katas][tdd-katas].
 * `spec` - my studies on [clojure.spec][clojure.spec].
 
-## Tests
+## Unit Tests
 
 I'm a huge advocate of unit tests, so all my exercises are
 tested!
@@ -22,6 +35,7 @@ There are some exercises that are purely in the test namespace:
 
 * `destructuring` - my understandings about [destructuring]
   [destructuring] in test format.
+*
 
 [code-arcade]: https://app.codesignal.com/arcade
 
@@ -32,3 +46,5 @@ There are some exercises that are purely in the test namespace:
 [clojure.spec]: https://clojure.org/guides/spec
 
 [destructuring]: https://clojure.org/guides/destructuring
+
+[kaocha]: https://github.com/lambdaisland/kaocha
