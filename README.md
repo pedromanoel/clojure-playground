@@ -5,11 +5,30 @@ This project contains my explorations of the clojure language.
 ## Running the code
 
 This repository does not contain an application, only
-namespaces with my understanding about several topics. You
-can, however, run the unit tests with:
+namespaces with my understanding about several topics.
+
+You can, however, run the unit tests with:
 
 ```shell
-./bin/kaocha
+bin/kaocha
+
+# Watch for changes
+bin/kaocha --watch
+
+# Exit at first failure
+bin/kaocha --fail-fast
+
+# Only run the `unit` suite
+bin/kaocha unit
+
+# Only run a single test
+bin/kaocha --focus my.app.foo-test/bar-test
+
+# Use an alternative config file
+bin/kaocha --config-file tests_ci.edn
+
+# See all available options
+bin/kaocha --test-help
 ```
 
 The [tests.edn](./tests.edn) file configures how Kaocha will
