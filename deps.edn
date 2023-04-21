@@ -6,6 +6,6 @@
  {:test
   {:extra-paths ["src/test"]
    :extra-deps  {org.clojure/test.check     {:mvn/version "1.1.1"}
-                 lambdaisland/kaocha        {:mvn/version "1.67.1055"}
-                 nubank/matcher-combinators {:mvn/version "3.5.0"}}
+                 lambdaisland/kaocha        {:mvn/version "1.77.1236"}
+                 nubank/matcher-combinators {:mvn/version "3.8.3"}}
    :main-opts   ["-m" "kaocha.runner"]}}}
