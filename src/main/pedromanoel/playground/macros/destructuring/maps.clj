@@ -1,43 +1,35 @@
 (ns pedromanoel.playground.macros.destructuring.maps)
 
 (defn keys-bindings
-  [[_ spec-val] binding-val]
-  (->> spec-val
-       (map (juxt identity (comp (partial get binding-val) keyword)))
-       (reduce concat)))
+  [binding-val [spec-key spec-val]]
+  (when (= :keys spec-key)
+    (->> spec-val
+             (map (juxt identity (comp (partial get binding-val) keyword)))
+             (reduce concat))))
 
 (defn as-bindings
-  [[_ spec-val] binding-val]
-  [spec-val binding-val])
+  [binding-val [spec-key spec-val]]
+  (when (= :as spec-key)
+    [spec-val binding-val]))
 
 (defn or-bindings
-  [[_ spec-val]]
-  (->> spec-val
-       (map (juxt first (partial apply list 'or)))
-       (reduce concat)))
+  [_ [spec-key spec-val]]
+  (when (= :or spec-key)
+    (->> spec-val
+         (map (juxt first (partial apply list 'or)))
+         (reduce concat))))
 
 (defn symbol-bindings
-  [[spec-key spec-val] binding-val]
-  [spec-key (->> spec-val keyword (get binding-val))])
+  [binding-val [spec-key spec-val]]
+  (when (symbol? spec-key)
+    [spec-key (get binding-val (keyword spec-val))]))
 
 (defn bindings
   [[binding-spec binding-val]]
   (->> binding-spec
-       (map (fn [[spec-key spec-val :as binding-spec]]
-              (cond
-                (= :keys spec-key)
-                (keys-bindings binding-spec binding-val)
-
-                (= :as spec-key)
-                (as-bindings binding-spec binding-val)
-
-                (= :or spec-key)
-                (or-bindings binding-spec)
-
-                (symbol? spec-key)
-                (symbol-bindings binding-spec binding-val)
-
-                :else
-                binding-spec)))
+       (map (some-fn (partial keys-bindings binding-val)
+                     (partial as-bindings binding-val)
+                     (partial or-bindings binding-val)
+                     (partial symbol-bindings binding-val)))
        (reduce concat)
        vec))
