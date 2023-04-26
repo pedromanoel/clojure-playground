@@ -23,4 +23,5 @@
 
                 :else
                 binding-spec)))
-       (reduce concat)))
+       (reduce concat)
+       vec))

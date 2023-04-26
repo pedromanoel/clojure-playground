@@ -39,6 +39,7 @@
                                      x     :x
                                      y     :y
                                      :or {x 0 y 0 z 0}} {:x 1 :z 2}])]
+      (is (vector? expanded))
       (is (match? '[x 1 y nil z 2
                     z 2
                     my-map {:x 1 :z 2}

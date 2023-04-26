@@ -51,8 +51,3 @@
     (testing "fn"
       (is (= "a value"
              ((fn [a-symbol] a-symbol) "a value"))))))
-
-(defmacro as-map [& vars]
-  (->> vars
-       (map (juxt keyword identity))
-       (into {})))

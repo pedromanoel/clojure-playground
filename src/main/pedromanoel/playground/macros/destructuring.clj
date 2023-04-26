@@ -1,4 +1,5 @@
-(ns pedromanoel.playground.macros.destructuring)
+(ns pedromanoel.playground.macros.destructuring
+  (:require [pedromanoel.playground.macros.destructuring.maps :as maps]))
 
 (defn binding-keys
   "Receives a pair of binding-spec and binding-val:
@@ -12,6 +13,5 @@
        vec))
 
 (defmacro my-let [binding-spec & forms]
-  (apply list
-         'let (binding-keys binding-spec)
+  (apply list 'let (maps/bindings binding-spec)
          forms))
