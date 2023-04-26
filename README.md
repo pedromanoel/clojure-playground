@@ -67,6 +67,6 @@ There are some exercises that are purely in the test namespace:
 
 [kaocha]: https://github.com/lambdaisland/kaocha
 
-[macros]: https://clojure.org/reference/macros
+[macros]: https://www.braveclojure.com/writing-macros/
 
 [tdd-katas]: https://tddmanifesto.com/exercises/
