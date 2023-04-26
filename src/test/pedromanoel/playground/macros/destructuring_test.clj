@@ -1,17 +1,21 @@
 (ns pedromanoel.playground.macros.destructuring-test
   (:require [clojure.test :refer :all]
             [matcher-combinators.test :refer [match?]]
-            [pedromanoel.playground.macros.destructuring :as destructuring]))
+            [pedromanoel.playground.macros.destructuring :refer [my-let]]))
 
 (deftest my-let-map-test
-  (testing "it "
-    (is (match? {:x 1 :y 0 :z 2 :my-map {:x 1 :z 2}}
-                (destructuring/my-let [{:keys [x]
-                                        y     :y
-                                        z     :z
-                                        :as   my-map
-                                        :or   {y 0}} {:x 1 :z 2}]
-                  {:x      x
-                   :y      y
-                   :z      z
-                   :my-map my-map})))))
+  (testing "it destructures maps correctly"
+    (is (match? {:name "Pedro"
+                 :age :unknown
+                 :my-name "Pedro"
+                 :person {:name "Pedro"}}
+                (my-let [{:keys   [name age]
+                          my-name :name
+                          :as     person
+                          :or     {name :unknown
+                                   age  :unknown}}
+                         {:name "Pedro"}]
+                  {:name name
+                   :age age
+                   :my-name my-name
+                   :person person})))))
